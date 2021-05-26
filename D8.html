@@ -4,99 +4,99 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
     <script>
-        /* EXERCISE 1
-                        Write a function for changing the title of the document in something else.
-                          */
-
         const changeTitle = function(newTitle) {
-            document.getElementByTagName('h1')[0].innerHTML = newTitle
+            document.getElementsByTagName('h1')[0].innerHTML = newTitle
         };
-        changeTitle('This is new Title')
-            /* EXERCISE 2
-            Write a function for changing the class of the title of the page in "myHeading".
-            */
+        //changeTitle('This is new Title')
+        /* EXERCISE 2
+        Write a function for changing the class of the title of the page in "myHeading".
+        */
 
         const addClassToTitle = function() {
-            document.getElementByClassName('myHeading') = 'newHeading'
+            document.getElementsByClassName('myHeading').className = 'newHeading'
         };
-        addClassToTitle()
-            /* EXERCISE 3
-            Write a function for changing the text of only the p which are children of a div.
-            */
+        //addClassToTitle()
+        /* EXERCISE 3
+        Write a function for changing the text of only the p which are children of a div.
+        */
 
         const changePcontent = function() {
-            document.getElementById('change').innerHTML = 'changed paragraph';
+            let pText = document.getElementById('change').innerHTML = 'changed paragraph';
         };
-        changePcontent()
-            /* EXERCISE 4
-            Write a function for changing the destination of every link to https://www.google.com
-            */
+        //changePcontent()
+        /* EXERCISE 4
+        Write a function for changing the destination of every link to https://www.google.com
+        */
 
         const changeUrls = function() {
-            window.location.href = 'https://www.google.com'
+            document.getElementsByTagName('a')[0].innerHTML = 'https:www.google.com'
         };
-        changeUrls()
-            /* EXERCISE 5
-             Write a function for adding a new item in the second list.
-             */
+        //changeUrls()
+        /* EXERCISE 5
+         Write a function for adding a new item in the second list.
+         */
 
         const addToTheSecond = function(content) {
-            document.getElementById('secondList').appendChild(content);
+            let listName = document.getElementById('secondList')
+            let newElement = document.createElement("li")
+            newElement.appendChild(document.createTextNode(content))
+            listName.appendChild(newElement)
         };
-        addToTheSecond('4th')
-            /* EXERCISE 6
-            Write a function for adding a second paragraph to the div.
-            */
+        //addToTheSecond('4th')
+        /* EXERCISE 6
+        Write a function for adding a second paragraph to the div.
+        */
 
         const addParagraph = function(content) {
             let element = document.createElement('p')
             let text = document.createTextNode(content)
             element.appendChild(text)
-            document.getElementByClassName('para-class').appendChild(element)
+            document.getElementsByClassName('para-class')[0].appendChild(element)
         };
-        addParagraph('This is new Paragraph')
-            /* EXERCISE 7
-            Write a function for making the first UL disappear.
-            */
+        //addParagraph('This is new Paragraph')
+        /* EXERCISE 7
+        Write a function for making the first UL disappear.
+        */
 
         const firstUlDisappear = function() {
-            document.getElementById('firstList').toggleDisplay()
+            let firstList = document.getElementById('firstList')
+            firstList.style.display = 'none'
         };
-        firstUlDisappear()
-            /* EXERCISE 8
-            Write a function for making the background of every UL green.
-            */
+        //firstUlDisappear()
+        /* EXERCISE 8
+        Write a function for making the background of every UL green.
+        */
 
         const paintItGreen = function() {
             document.getElementById('firstList').style.background = 'green'
             document.getElementById('secondList').style.background = 'green'
         };
-        paintItGreen()
-            /* EXERCISE 9
-            Make the heading of the page change color every time the user clicks on it.
-            */
+        //paintItGreen()
+        /* EXERCISE 9
+        Make the heading of the page change color every time the user clicks on it.
+        */
 
         const makeItClickable = function() {
-            let colors = ['red', 'blue', 'gray', 'orange', 'white']
-            document.getElementByTagName('h1').addEventListener('click', function() {
-                for (let i = 0; i < colors.length; i++) {
-                    this.style.color = colors[i]
-                }
-            })
-        }
-        makeItClickable()
+                let colors = ['red', 'blue', 'gray', 'orange']
+                let cnt = 0
+                document.getElementsByTagName('h1')[0].addEventListener('click', function() {
+                    if (cnt >= colors.length) cnt = 0;
+                    this.style.color = colors[cnt];
+                    cnt++;
+                })
+            }
+            //makeItClickable()
             /* EXERCISE 10
             Change the footer text with something else when the user clicks on it.
             */
 
         const changeFooterText = function() {
-            document.getElementsByTagName('footer').addEventListener('click',
-                document.getElementsByTagName('footer')[0].getElementsByTagName('p').innerHTML = 'new footer text')
+            document.getElementsByTagName('footer')[0].addEventListener('click', document.getElementsByTagName('footer')[0].getElementsByTagName('p')[0].innerHTML = 'new footer text')
         };
-        changeFooterText()
-            /* EXERCISE 11
-            Attach an event listener to the input field in the page for console logging its value just after any keystroke.
-            */
+        //changeFooterText()
+        /* EXERCISE 11
+        Attach an event listener to the input field in the page for console logging its value just after any keystroke.
+        */
 
         document.getElementById("input-field").addEventListener('keypress',
                 conosle.log(document.getElementById('input-field').value))
