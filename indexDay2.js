@@ -14,5 +14,10 @@ const numberCreator = function() {
 }
 const buttonClick = function() {
     let randomNumber = Math.floor((Math.random() * 76) + 1)
-
+    let randomBoardNumber = document.getElementsByClassName('number')
+    for (let i = 0; i < randomBoardNumber.length; i++) {
+        if (randomBoardNumber[i] === randomNumber) {
+            document.getElementsByClassName('number')[i].style.backgroundColor = 'red'
+        }
+    }
 }
